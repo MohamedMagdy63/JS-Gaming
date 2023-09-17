@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@500&family=Qwitcher+Grypen:wght@400;700&display=swap');
+body{
+    background-color: rgb(225, 205, 236);
+    color: rgb(58, 124, 124);
+    font-family: 'Asap', sans-serif;
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 20px;
+    text-align: center;
+}
+.grid {
+    display: grid;
+    grid-template: repeat(3,168px)/repeat(3,168px);
+    height: 500px;
+    width: 500px;
+    border: 0px solid rgb(58, 124, 124);
+    margin: 0px 500px;
+}
+.square{
+    border: 1px solid rgb(58, 124, 124);
+}
+.mole{
+    background-image: url('images/mole.png');
+    background-size: cover;
+}

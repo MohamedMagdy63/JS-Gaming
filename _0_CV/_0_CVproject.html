@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CV Project</title>
+        <style>
+            body{
+                background-color:black;
+                font-size: x-large;
+                color: azure;
+                font-style: inherit;
+                color-interpolation-filters: sRGB;
+            }
+            .firstPart{
+                color: azure;
+            }
+            #cvImgs{
+
+                margin-left: 120px;
+                margin-top: 20px;
+                width: 250px;
+                height: 250px;
+                border-radius: 100%;
+                overflow: hidden;
+                background-color: azure;
+            }
+            .dataPart{
+                margin-top: 200px;
+                margin-left: 500px;
+                margin-right: 500px;
+                border: 10px solid rgb(99, 174, 224);
+                background-color: darkcyan;
+            }
+            #but{
+                color: black;
+                background-color: azure;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="dataPart">
+            <div id="cvData"></div>
+            <img src="" alt="" id="cvImgs">
+            <button id="but" onclick="but()"></button>
+        </div>
+    </body>
+    <script>
+        var cvData
+        ,cvImgs
+        ,cvBut
+
+        cvData=document.getElementById('cvData')
+        
+        cvImgs=document.getElementById("cvImgs")
+
+        cvBut=document.getElementById("but")
+        
+        cvData.innerHTML="This is my CV but in Trendy way"
+
+        cvImgs.src="intro.jpg"
+
+        cvBut.innerHTML="Change me"
+        function but(){
+            
+            function delay(delayInms) {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        resolve(2);
+                    }, delayInms);
+                });
+            }
+            async function sample() {
+                cvData.innerHTML="Mohamed magdy"
+                cvImgs.src="Name.jpg"
+                
+                let delayres = await delay(3000);
+                
+                cvImgs.src="Age.jpg"
+                cvData.innerHTML="22 Years old"
+
+                let delayres_2 = await delay(3000);
+                
+                cvImgs.src="intro.jpg"
+                cvData.innerHTML="This is my CV but in Trendy way"
+
+            }
+
+            sample();
+        }
+    </script>
+</html>

@@ -1,0 +1,110 @@
+<html>
+<body>
+        
+
+<header class="game-header">
+    <h1>Tic tac toe</h1>
+    <p>Classic game for two players. O always starts.</p>
+    <p class="current">Current player: <span id="current"></span></p>
+  </header>
+  <!-- /.game-header -->
+  <div class="board">
+    <div class="field"></div>
+    <div class="field"></div>
+    <div class="field"></div>
+    <div class="field"></div>
+    <div class="field"></div>
+    <div class="field"></div>
+    <div class="field"></div>
+    <div class="field"></div>
+    <div class="field"></div>
+  </div>
+</body>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Indie Flower', cursive;
+  }
+  .game-header {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .current {
+    font-size: 2em;
+  }
+  .board {
+    width: 306px;
+    margin: 0 auto;
+    display: grid;
+    grid-template: repeat(3,100px) / repeat(3,100px);
+    grid-gap: 3px;
+    background-color: #000;
+  }
+  .field {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    cursor: pointer;
+  }
+</style>
+<script>
+  var TicTacToe = {
+    board: document.getElementsByClassName('board')[0],
+    fields: document.getElementsByClassName('field'),
+    currentPlayer: document.getElementById('current'),
+    checkedFields: Array(9).fill(''),
+    win: [
+      [0,1,2],
+      [3,4,5],
+      [6,7,8],
+      [0,3,6],
+      [1,4,7],
+      [2,5,8],
+      [0,4,8],
+      [2,4,6]
+    ],
+    init: function() {
+      this.current = 'O';
+      this.currentPlayer.textContent = this.current;
+      for (var i = 0; i < this.fields.length; i++) {
+        this.fields[i].textContent = '';
+        this.checkedFields[i] = '';
+      }
+    },
+    checkWin: function() {
+      for(var i = 0; i < this.win.length; i++) {
+        if (this.checkedFields[this.win[i][0]] === this.current && this.checkedFields[this.win[i][1]] === this.current && this.checkedFields[this.win[i][2]] === this.current) {
+          alert(this.current + ' won!');
+          this.init();
+          return true;
+        } else if (this.checkedFields.indexOf('') === -1) {
+          alert('Tie');
+          this.init();
+          return true;
+        }
+      }
+    },
+    handleClick: function(e) {
+      var currentField = e.target;
+      var currentFieldNumber = Array.prototype.indexOf.call(this.fields,currentField);
+      if (!currentField.textContent) {
+        currentField.textContent = this.current;
+        this.checkedFields[currentFieldNumber] = this.current;
+        if (!this.checkWin()) {
+          this.current = this.current === 'O' ? 'X' : 'O';
+          this.currentPlayer.textContent = this.current;
+        }
+      }
+    }
+  }
+  TicTacToe.init();
+  TicTacToe.board.addEventListener('click',function(e) {
+    TicTacToe.handleClick(e);
+  });
+</script>
+  </html>

@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@500&family=Qwitcher+Grypen:wght@400;700&display=swap');
+body{
+    background-color: rgb(202, 189, 189);
+    color: rgb(47, 1, 1);
+    font-family: 'Asap', sans-serif;
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 50px;
+    text-align: center;
+}
+.gridClass{
+    display: grid;
+    grid-template: repeat(3,150px)/repeat(3,150px);
+    height: 450px;
+    width: 450px;
+    border: 5px solid  rgb(47, 1, 1);
+    text-align: center;
+    margin: 50px 500px;
+}
+.squareClass{
+    border: 2px solid rgb(47, 1, 1) ;
+}
+.monster{
+    background-image: url("images/monster.png");
+    background-size: cover;
+}
+.start{
+    background-color: rgb(202, 189, 189);
+    border: 2px solid rgb(47, 1, 1);
+    padding: 5px;
+    animation: alternate;
+}
